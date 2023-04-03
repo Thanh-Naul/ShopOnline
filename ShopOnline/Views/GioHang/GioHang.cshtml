@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ShopOnline.Models.Giohang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Mainlayout.cshtml";
+}
+
+<h2>GioHang</h2>
+
+<p>
+   
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.tensanpham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhCHinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isoluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dThanhTien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.tensanpham)</td>
+
+            <td> <img src="@item.HinhCHinh" width="180px" /></td>
+
+            @using (Html.BeginForm("Capnhatgiohang", "GioHang", new { @id = item.maSanPham }))
+            {
+                <td> @String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                <td> <input type="number" min="1" name="txtSolg" value="@item.isoluong" /></td>
+                <td> <a href="@Url.Action("Details","ListShop", new {id = item.maSanPham})">Chi Tiết</a> <br />
+                @Html.ActionLink("Xoa", "XoaGioHang", new { id = item.maSanPham })</td>
+                <td><input type="submit" class="btn btn-success" value="Update" /></td>
+
+            }
+
+
+        </tr>
+    }
+
+    <tr style="font-weight:bold; text-align:left; color:aqua">
+        <td colspan="2"> Số Loại Sản Phẩm: @ViewBag.SumSanPham</td>
+        <td colspan="2"> Số Lượng Sản Phẩm: @ViewBag.TongSoluong</td>
+        <td colspan="4"> Tổng Tiền : @String.Format("{0:0,0}", @ViewBag.SumTin) VNĐ</td>
+    </tr>
+
+    <tr style="font-weight:bold; color:forestgreen; text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Xóa giỏ hàng", "XoaALLGiohang")
+        </td>
+    </tr>
+    <tr style="font-weight:bold; color:aquamarine; text-align:right">
+        <td colspan="5">
+            @Html.ActionLink("Đặt Hàng ", "DatHang","GioHang")
+        </td>
+    </tr>
+
+
+</table>
+
+
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@

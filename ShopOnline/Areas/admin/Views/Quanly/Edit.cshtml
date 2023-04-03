@@ -1,0 +1,128 @@
+﻿@model ShopOnline.Models.SanPham
+@{
+    ViewBag.Title = "Edit";
+  
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.maSanpham)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.maSanpham, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.maSanpham, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.maSanpham, "", new { @class = "text-warning bg-dark" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.tensanPham, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tensanPham, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.tensanPham, "", new { @class = "text-warning bg-dark" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HinhChinh, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+
+                @Html.EditorFor(model => model.HinhChinh, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.HinhChinh, "", new { @class = "text-warning bg-dark" })
+                <input type="file" name="fileUpload" id="fileUpload" accept="img/*"
+                       style="display:none;" />
+                <input type="button" id="btnUpload" value="Chọn" class="btn btn-success" />
+                <img src="@Model.HinhChinh" width="139px" height="=100px" id="pictureUpload" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @section upload
+{
+                    <script>
+                        $(function () {
+                            $('#btnUpload').click(function () {
+                                $('#fileUpload').trigger('click');
+                            });
+                        });
+                        $('#fileUpload').change(function () {
+                            if (window.FormData !== undefined) {
+                                var fileUpload = $('#fileUpload').get(0);
+                                var files = fileUpload.files;
+                                var formData = new FormData();
+                                formData.append('file', files[0]);
+
+                                $.ajax(
+                                    {
+                                        type: 'POST',
+                                        url: '/Quanly/ProcessUpload',
+                                        contentType: false,
+                                        processData: false,
+                                        data: formData,
+                                        success: function (urlassets) {
+
+                                            $('#pictureUpload').attr('src', urlassets);
+                                            $('#HinhChinh').val(urlassets);
+                                        },
+                                        error: function (err) {
+                                            alert('Error ', err.statusText);
+                                        }
+                                    });
+                            }
+                        });
+                    </script>
+                }
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.giaban, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.giaban, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.giaban, "", new { @class = "text-warning bg-dark" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ngaycapnhat, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ngaycapnhat, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.ngaycapnhat, "", new { @class = "text-warning bg-dark" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SoLuongTon, htmlAttributes: new { @class = "form-control form-control-lg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuongTon, new { htmlAttributes = new { @class = "btn btn-primary btn-lg" } })
+                @Html.ValidationMessageFor(model => model.SoLuongTon, "", new { @class = "text-warning bg-dark" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" style="color:aquamarine" value="Save" class="btn btn-dark" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ADmin")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
