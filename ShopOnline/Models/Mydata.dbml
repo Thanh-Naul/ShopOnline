@@ -47,9 +47,6 @@
       <Column Name="maloai" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="tensanPham" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="HinhChinh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Hinh1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Hinh2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="hinh3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="giaban" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="ngaycapnhat" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
       <Column Name="SoLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />

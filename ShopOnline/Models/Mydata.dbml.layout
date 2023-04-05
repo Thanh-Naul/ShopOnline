@@ -26,13 +26,13 @@
         <elementListCompartment Id="b5e9d336-ec4f-4af4-b436-8e72701ac5a4" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0818283b-6076-4b44-b334-ab9adf618140" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+    <classShape Id="0818283b-6076-4b44-b334-ab9adf618140" absoluteBounds="3.5, 1, 2, 2.1554996744791666">
       <DataClassMoniker Name="/MydataDataContext/SanPham" />
       <nestedChildShapes>
-        <elementListCompartment Id="7aa93f07-4b38-40dc-8384-260a9f178ccb" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7aa93f07-4b38-40dc-8384-260a9f178ccb" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 5.375); (5.875 : 5); (5.875 : 2.28929768880208); (6.25 : 2.28929768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.5 : 5.375); (5.875 : 5); (5.875 : 2.5625745193278); (6.25 : 2.5625745193278)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/MydataDataContext/donhang/donhang_chitietdonhang" />
       <nodes>
         <classShapeMoniker Id="ad2a4929-6166-48f7-86bb-b7737fa1a65b" />
@@ -46,7 +46,7 @@
         <classShapeMoniker Id="ad2a4929-6166-48f7-86bb-b7737fa1a65b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 2.28929768880208); (6.25 : 2.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 1.9687872596639); (6.25 : 1.9687872596639)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/MydataDataContext/SanPham/SanPham_chitietdonhang" />
       <nodes>
         <classShapeMoniker Id="0818283b-6076-4b44-b334-ab9adf618140" />

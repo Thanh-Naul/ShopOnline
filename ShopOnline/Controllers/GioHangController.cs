@@ -1,4 +1,4 @@
-﻿using ShopOnline.Models;
+﻿    using ShopOnline.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -124,7 +124,7 @@ namespace ShopOnline.Controllers
         {
             if (Session["TaiKhoan"] == null|| Session["TaiKhoan"].ToString()== "")
             {
-                return RedirectToAction("DangNhap", "NguoiDung");
+                return RedirectToAction("Dangnhap", "NguoiDung");
 
             }    
             if (Session["Giohang"]==null)

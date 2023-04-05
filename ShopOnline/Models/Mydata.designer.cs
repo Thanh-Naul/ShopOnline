@@ -977,12 +977,6 @@ namespace ShopOnline.Models
 		
 		private string _HinhChinh;
 		
-		private string _Hinh1;
-		
-		private string _Hinh2;
-		
-		private string _hinh3;
-		
 		private System.Nullable<decimal> _giaban;
 		
 		private System.Nullable<System.DateTime> _ngaycapnhat;
@@ -1005,12 +999,6 @@ namespace ShopOnline.Models
     partial void OntensanPhamChanged();
     partial void OnHinhChinhChanging(string value);
     partial void OnHinhChinhChanged();
-    partial void OnHinh1Changing(string value);
-    partial void OnHinh1Changed();
-    partial void OnHinh2Changing(string value);
-    partial void OnHinh2Changed();
-    partial void Onhinh3Changing(string value);
-    partial void Onhinh3Changed();
     partial void OngiabanChanging(System.Nullable<decimal> value);
     partial void OngiabanChanged();
     partial void OnngaycapnhatChanging(System.Nullable<System.DateTime> value);
@@ -1106,66 +1094,6 @@ namespace ShopOnline.Models
 					this._HinhChinh = value;
 					this.SendPropertyChanged("HinhChinh");
 					this.OnHinhChinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hinh1", DbType="VarChar(50)")]
-		public string Hinh1
-		{
-			get
-			{
-				return this._Hinh1;
-			}
-			set
-			{
-				if ((this._Hinh1 != value))
-				{
-					this.OnHinh1Changing(value);
-					this.SendPropertyChanging();
-					this._Hinh1 = value;
-					this.SendPropertyChanged("Hinh1");
-					this.OnHinh1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hinh2", DbType="VarChar(50)")]
-		public string Hinh2
-		{
-			get
-			{
-				return this._Hinh2;
-			}
-			set
-			{
-				if ((this._Hinh2 != value))
-				{
-					this.OnHinh2Changing(value);
-					this.SendPropertyChanging();
-					this._Hinh2 = value;
-					this.SendPropertyChanged("Hinh2");
-					this.OnHinh2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hinh3", DbType="VarChar(50)")]
-		public string hinh3
-		{
-			get
-			{
-				return this._hinh3;
-			}
-			set
-			{
-				if ((this._hinh3 != value))
-				{
-					this.Onhinh3Changing(value);
-					this.SendPropertyChanging();
-					this._hinh3 = value;
-					this.SendPropertyChanged("hinh3");
-					this.Onhinh3Changed();
 				}
 			}
 		}

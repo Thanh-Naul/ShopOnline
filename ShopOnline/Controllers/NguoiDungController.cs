@@ -18,25 +18,28 @@ namespace ShopOnline.Controllers
         [HttpPost]
         public ActionResult dangKy(FormCollection collection, khachhang kh)
         {
+            
             var hoten = collection["hoten"];
             var tendangnhap = collection["tendangnhap"];
             var matkhau = collection["matkhau"];
+            var MatKhauXacNhan = collection["MatKhauXacNhan"];
             var email = collection["email "];
             var diachi = collection["diachi "];
             var dienthoai = collection["dienthoai "];
-            var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["ngaysinh"]);
-            if (String.IsNullOrEmpty(matkhau))
+            var ngaysinh = string.Format("{0:MM/dd/yyyy}", collection["ngaysinh"]);
+            if (string.IsNullOrEmpty(MatKhauXacNhan))
             {
-                ViewData["NhaMKXN"] = "Phải nhập mật khẩu xác nhận";
+                ViewData["NhapMKXN"] = "Phải nhập mật khẩu xác nhận!";
             }
             else
             {
-                if (!matkhau.Equals(matkhau))
+                if (!matkhau.Equals(MatKhauXacNhan))
                 {
                     ViewData["MatKhauGiongNhau"] = "Mật khẩu và mật khẩu xác nhận phải giống nhau";
                 }
                 else
                 {
+                   
                     kh.hoten = hoten;
                     kh.tendangnhap = tendangnhap;
                     kh.matkhau = matkhau;
@@ -44,6 +47,7 @@ namespace ShopOnline.Controllers
                     kh.diachi = diachi;
                     kh.dienthoai = dienthoai;
                     kh.ngaysinh = DateTime.Parse(ngaysinh);
+                    
 
                     return RedirectToAction("Dangnhap");
                 }
@@ -72,6 +76,10 @@ namespace ShopOnline.Controllers
                 ViewBag.Thongbao = "Đăng Nhập Thành Công";
                 Session["TaiKhoan"] = kh;
             }
+            else
+            {
+                ViewBag.Thongbao = "Tên Đăng Nhập không đúng";
+            }    
             return RedirectToAction("ListShop", "Shop");
         }
     }
