@@ -47,7 +47,8 @@ namespace ShopOnline.Controllers
                     kh.diachi = diachi;
                     kh.dienthoai = dienthoai;
                     kh.ngaysinh = DateTime.Parse(ngaysinh);
-                    
+                    DataContext.khachhangs.InsertOnSubmit(kh);
+                    DataContext.SubmitChanges();
 
                     return RedirectToAction("Dangnhap");
                 }
