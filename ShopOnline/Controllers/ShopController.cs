@@ -80,7 +80,7 @@ namespace ShopOnline.Controllers
                 sh.SoLuongTon = E_SoluongTon;
                 DataContext.SanPhams.InsertOnSubmit(sh);
                 DataContext.SubmitChanges();
-                return RedirectToAction("listbook");
+                return RedirectToAction("listShop");
             }
             return this.Create();
         }

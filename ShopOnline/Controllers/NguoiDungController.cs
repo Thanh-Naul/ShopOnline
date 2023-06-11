@@ -33,6 +33,7 @@ namespace ShopOnline.Controllers
             }
             else
             {
+               
                 if (!matkhau.Equals(MatKhauXacNhan))
                 {
                     ViewData["MatKhauGiongNhau"] = "Mật khẩu và mật khẩu xác nhận phải giống nhau";
@@ -75,13 +76,14 @@ namespace ShopOnline.Controllers
             if (kh != null)
             {
                 ViewBag.Thongbao = "Đăng Nhập Thành Công";
-                Session["TaiKhoan"] = kh;
+                Session["khachhang"] = kh;
+                return RedirectToAction("ListShop", "Shop");
             }
             else
             {
                 ViewBag.Thongbao = "Tên Đăng Nhập không đúng";
             }    
-            return RedirectToAction("ListShop", "Shop");
+            return View();
         }
     }
 }

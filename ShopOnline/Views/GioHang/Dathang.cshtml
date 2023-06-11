@@ -7,7 +7,7 @@
 @using ShopOnline.Models
 <h2 style="text-align:center">Thông tin Đặt Hàng</h2>
 @{ 
-    khachhang kh = (khachhang)Session["TaiKhoan"];
+    khachhang kh = (khachhang)Session["khachhang"];
 }
 <table class="table">
 
@@ -49,7 +49,8 @@
         <tr style="height: 40px">
             <td></td>
             <td style="font-weight:bold">
-                <input type="submit" value="Xác Nhận" class="btn btn-success label-danger"  />
+                <input href="@Url.Action("Payment","GioHang" )" type="submit" value="Xác Nhận" class="btn btn-success label-danger" />
+               
             </td>
         </tr>
     }
@@ -68,7 +69,7 @@
             </td>
             @using (Html.BeginForm("CapNhatGiohang", "Giohang", new { @id = item.maSanPham }))
             {
-                <td>@String.Format("{0:0,0}", item.giaban) VNĐ</td>
+                <td>@item.giaban.ToString("N0") VNĐ </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.isoluong)
                 </td>
@@ -85,10 +86,25 @@
         <td colspan="2"> Số Lượng Sản Phẩm: @ViewBag.TongSoluong</td>
         <td colspan="4"> Tổng Tiền : @String.Format("{0:0,0}", @ViewBag.SumTin) VNĐ</td>
     </tr>
+
+
     <tr style="font-weight:bold; color:forestgreen; text-align:right">
         <td colspan="5">
             @Html.ActionLink("Trở Về giỏ hàng", "Giohang", "GioHang")
         </td>
-    </tr>
+        <td></td>
 
+        @*<td>
+            @using (Html.BeginForm("Dathang", "GioHang"))
+            {
+                <button type="submit" class="checkout">Oncash</button>
+
+            }
+            <a href="@Url.Action("Payment","GioHang" )">
+
+                <img src="~/Content/assets/img/vnpay.png" width="100" class="vnpay" alt="" />
+            </a>
+        </td>*@
+    </tr>
+   
 </table>

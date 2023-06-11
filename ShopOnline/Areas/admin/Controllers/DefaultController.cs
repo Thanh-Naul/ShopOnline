@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+
     public class DefaultController : Controller
     {
         MydataDataContext ul = new MydataDataContext(); 

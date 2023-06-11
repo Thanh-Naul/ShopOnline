@@ -12,7 +12,7 @@
 </p>
 <table class="table">
     <tr>
-        
+
         <th>
             @Html.DisplayNameFor(model => model.tensanpham)
         </th>
@@ -42,8 +42,10 @@
             {
                 <td> @String.Format("{0:0,0}", item.giaban) VNĐ</td>
                 <td> <input type="number" min="1" name="txtSolg" value="@item.isoluong" /></td>
-                <td> <a href="@Url.Action("Details","ListShop", new {id = item.maSanPham})">Chi Tiết</a> <br />
-                @Html.ActionLink("Xoa", "XoaGioHang", new { id = item.maSanPham })</td>
+                <td>
+                    <a href="@Url.Action("Details","ListShop", new {id = item.maSanPham})">Chi Tiết</a> <br />
+                    @Html.ActionLink("Xoa", "XoaGioHang", new { id = item.maSanPham })
+                </td>
                 <td><input type="submit" class="btn btn-success" value="Update" /></td>
 
             }
@@ -65,10 +67,11 @@
     </tr>
     <tr style="font-weight:bold; color:aquamarine; text-align:right">
         <td colspan="5">
-            @Html.ActionLink("Đặt Hàng ", "DatHang","GioHang")
+            @Html.ActionLink("Đặt Hàng ", "DatHang", "GioHang")
         </td>
+        
     </tr>
-
+    
 
 </table>
 

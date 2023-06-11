@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+
     public class BaseController : Controller
     {
         //controller này sẽ viết ghi đè 1 phương thức

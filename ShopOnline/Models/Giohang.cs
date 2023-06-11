@@ -26,12 +26,21 @@ namespace ShopOnline.Models
         [Display(Name = "Thành Tiền")]
         public Double dThanhTien
         {
-            get { return isoluong * giaban;}
+            get
+            {
+                return  isoluong * giaban;
+                //if (double.IsNaN(thanhTien) || double.IsInfinity(thanhTien))
+                //{
+                //    // Xử lý trường hợp giá trị không hợp lệ ở đây, ví dụ:
+                //    thanhTien = 0; // Gán giá trị mặc định hoặc giá trị khác tuỳ theo yêu cầu của bạn
+                //}
+                //return thanhTien;
 
+            }
         }
         public Giohang(int id)
         {
-            maSanPham = id;
+            this.maSanPham = id;
             SanPham sanPham = Data.SanPhams.Single(n => n.maSanpham == maSanPham);
             tensanpham = sanPham.tensanPham;
             HinhCHinh = sanPham.HinhChinh;

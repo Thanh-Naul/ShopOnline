@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace ShopOnline.Areas.admin.Controllers
 {
+    
     public class QuanlyController : BaseController
     {
         MydataDataContext dataContext = new MydataDataContext();
@@ -17,6 +18,7 @@ namespace ShopOnline.Areas.admin.Controllers
             Session.Clear();
             return RedirectToAction("Login", "Default");
         }
+        
         // GET: Quanly
         public ActionResult ADmin(int? page)
         {
@@ -27,7 +29,7 @@ namespace ShopOnline.Areas.admin.Controllers
             return View(all_sach.ToPagedList(pageNum, pageSize));
         }
 
-
+     
         // GET: Quanly/Create
         public ActionResult Create()
         {
